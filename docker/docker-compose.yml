@@ -23,3 +23,13 @@ services:
     ports:
       - '6379:6379'
     command: redis-server --save 20 1 --loglevel warning
+  python_fastapi_poetry:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+    image: python_fastapi_poetry
+    ports:
+      - "8000:8000"
+    depends_on:
+      mysql:
+        condition: service_healthy
