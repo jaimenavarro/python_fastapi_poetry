@@ -1,0 +1,25 @@
+version: '2.1'
+
+services:
+  mysql:
+    image: mysql:5.7.32
+    restart: always
+    mem_limit: 512m
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_DATABASE=python_test
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=password
+    healthcheck:
+      test: "/usr/bin/mysql --user=root --password=admin --execute \"SHOW DATABASES;\""
+      interval: 45s
+      timeout: 5s
+      retries: 5
+  redis:
+    image: redis:6.2-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    command: redis-server --save 20 1 --loglevel warning
