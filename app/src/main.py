@@ -11,8 +11,9 @@ models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
-print(config.DEBUG)
-
+print(f'{config.SECRET_KEY=}')
+print(f'{config.EMAIL_HOST=}')
+print(f'{config.EMAIL_PORT=}')
 
 # Dependency
 def get_db():
