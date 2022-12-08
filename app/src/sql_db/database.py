@@ -1,8 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from app.src import config
-
+from app.src.config import config
 
 SQLALCHEMY_DATABASE_URL = f'mysql+pymysql://root:admin@{config.SQL_DB_SERVER}/python_test'
 

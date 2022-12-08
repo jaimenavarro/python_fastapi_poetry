@@ -1,7 +1,7 @@
 import redis
 import json
 
-from app.src import config
+from app.src.config import config
 
 db_redis = redis.Redis(host=f'{config.REDIS_DB_SERVER}', port=6379, db=0)
 
