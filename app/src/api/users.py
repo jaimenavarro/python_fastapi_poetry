@@ -1,17 +1,14 @@
+from fastapi import APIRouter
 from fastapi import Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from app.src.sql_db import models, schemas
-from app.src.service_logic import crud
-from app.src.sql_db.database import SessionLocal, engine
 from app.src.redis_db.redis import get_redis_value, set_redis_value
-
-from fastapi import APIRouter
+from app.src.service_logic import crud
+from app.src.sql_db import schemas
+from app.src.sql_db.connection import SessionLocal
 
 router = APIRouter()
 
-
-models.Base.metadata.create_all(bind=engine)
 
 # Dependency
 def get_db():
