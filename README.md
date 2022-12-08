@@ -1,4 +1,6 @@
 # Example Python with FastAPI, MySQL, Redis
+Follow links shows information about the requirements used for this microservice:
+* [Poetry](https://python-poetry.org/docs/#installation)
 * [FastAPI](https://fastapi.tiangolo.com/tutorial/)
 * [SQL Database](https://fastapi.tiangolo.com/tutorial/sql-databases)
 * [Redis Database](https://pypi.org/project/redis/)
@@ -24,6 +26,26 @@
 │   └── sql_db
 └── test_main.http
 ```
+
+## Python Build and Run
+We use [Poetry](https://python-poetry.org/docs/#installation) for the following actions.
+
+* Create virtualenv configuration
+```shell
+poetry install
+```
+
+* Install dependencies
+```shell
+poetry add [dependencies]
+```
+
+* Run app
+```shell
+python -m uvicorn app.src.main:app --reload 
+```
+
+
 
 ## Docker Details
 ### Build Docker Image

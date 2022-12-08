@@ -1,7 +1,7 @@
 import redis
 import json
 
-db_redis = redis.Redis(host='redis', port=6379, db=0)
+db_redis = redis.Redis(host='0.0.0.0', port=6379, db=0)
 
 
 def get_redis_value(key):
