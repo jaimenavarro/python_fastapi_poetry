@@ -34,7 +34,7 @@ RUN apt update
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
 COPY ./app/ /application/app
-COPY ./poetry.lock ./pyproject.toml /application/
+COPY ./poetry.lock ./pyproject.toml ./.env /application/
 
 WORKDIR /application
 RUN poetry install --no-root -vvv
