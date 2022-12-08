@@ -5,15 +5,9 @@ from app.src.sql_db import crud, models, schemas
 from app.src.sql_db.database import SessionLocal, engine
 from app.src.redis_db.redis import get_redis_value, set_redis_value
 
-from app.src import config
-
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-
-print(f'{config.SECRET_KEY=}')
-print(f'{config.EMAIL_HOST=}')
-print(f'{config.EMAIL_PORT=}')
 
 # Dependency
 def get_db():

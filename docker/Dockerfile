@@ -34,10 +34,9 @@ RUN apt update
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
 COPY ./app/ /application/app
-COPY ./poetry.lock ./pyproject.toml ./.env /application/
+COPY ./poetry.lock ./pyproject.toml /application/
+COPY .env /application/
 
 WORKDIR /application
 RUN poetry install --no-root -vvv
-RUN echo $PATH
-RUN ls -la /application/*
 CMD uvicorn --reload app.src.main:app --host 0.0.0.0 --port 8000
