@@ -4,6 +4,7 @@ Follow links shows information about the requirements used for this microservice
 * [FastAPI](https://fastapi.tiangolo.com/tutorial/)
 * [SQL Database](https://fastapi.tiangolo.com/tutorial/sql-databases)
 * [Redis Database](https://pypi.org/project/redis/)
+* [Configuration form environment variables and from file](https://pypi.org/project/python-decouple/)
 
 ## Folders
 ```shell
@@ -30,12 +31,12 @@ Follow links shows information about the requirements used for this microservice
 ## Python Build and Run
 We use [Poetry](https://python-poetry.org/docs/#installation) for the following actions.
 
-* Create virtualenv configuration
+* Create virtualenv configuration and install current dependencies
 ```shell
 poetry install
 ```
 
-* Install dependencies
+* Install new dependencies
 ```shell
 poetry add [dependencies]
 ```
@@ -50,14 +51,12 @@ python -m uvicorn app.src.main:app --reload
 ## Docker Details
 ### Build Docker Image
 ```shell
-┌─[jaime@jaime-mac-pro]─[~/Documents/Local/python_fastapi_poetry]─[]
-└─╾ docker build . -f docker/Dockerfile
+docker build . -f docker/Dockerfile
 ```
 
 ### Docker Compose with all dependencies 
 ```shell
-┌─[jaime@jaime-mac-pro]─[~/Documents/Local/python_fastapi_poetry]─[]
-└─╾ docker-compose -f docker/docker-compose.yml up
+docker-compose -f docker/docker-compose.yml up
 ```
 
 ## API Documents
@@ -65,3 +64,16 @@ python -m uvicorn app.src.main:app --reload
 
 ![img.png](docs/img.png)
 
+## Helm
+
+```shell
+helm dep up helm/py_fastapi_poetry
+```
+
+```shell
+helm upgrade py helm/py_fastapi_poetry/ -i --debug
+```
+
+```shell
+helm uninstall py
+```

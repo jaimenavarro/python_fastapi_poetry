@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "py_fastapi_poetry.fullname" . }}
+  labels:
+    {{- include "py_fastapi_poetry.labels" . | nindent 4 }}
+data:
+  env: |
+    SQL_DB_SERVER="{{ .Release.Name }}-mysql"
+    REDIS_DB_SERVER="{{ .Release.Name }}-redis-master"
