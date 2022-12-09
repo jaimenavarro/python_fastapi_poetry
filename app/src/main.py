@@ -10,5 +10,6 @@ models.Base.metadata.create_all(bind=engine)
 # Creates an application instance.
 app = FastAPI()
 
+# Add routes to the application
 app.include_router(users.router)
 app.include_router(admin.router)

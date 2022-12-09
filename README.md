@@ -4,7 +4,7 @@ Follow links shows information about the requirements used for this microservice
 * [FastAPI](https://fastapi.tiangolo.com/tutorial/)
 * [SQL Database](https://fastapi.tiangolo.com/tutorial/sql-databases)
 * [Redis Database](https://pypi.org/project/redis/)
-* [Configuration form environment variables and from file](https://pypi.org/project/python-decouple/)
+* [Configuration from environment variables and from file](https://pypi.org/project/python-decouple/)
 
 ## Folders
 ```shell
