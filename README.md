@@ -1,10 +1,12 @@
 # Example Python with FastAPI, MySQL, Redis
 Follow links shows information about the requirements used for this microservice:
 * [Poetry](https://python-poetry.org/docs/#installation)
+* [WSGI uvicorn](https://www.uvicorn.org/settings/)
 * [FastAPI](https://fastapi.tiangolo.com/tutorial/)
+    *   [FastAPI concurrency and async / await operations](https://fastapi.tiangolo.com/async/)
 * [SQL Database](https://fastapi.tiangolo.com/tutorial/sql-databases)
 * [Redis Database](https://pypi.org/project/redis/)
-* [Configuration from environment variables and from file](https://pypi.org/project/python-decouple/)
+* [python-decoupl - config options](https://pypi.org/project/python-decouple/)
 
 ## Folders
 ```shell

@@ -39,4 +39,7 @@ COPY .env /application/
 
 WORKDIR /application
 RUN poetry install --no-root -vvv
-CMD uvicorn --reload app.src.main:app --host 0.0.0.0 --port 8000
+CMD uvicorn app.src.main:app --host 0.0.0.0 --port 8000 \
+    --workers 1 --log-level info \
+    --server-header --date-header \
+    --limit-concurrency 100
