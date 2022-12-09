@@ -28,6 +28,8 @@ services:
       context: ../
       dockerfile: ./docker/Dockerfile
     image: python_fastapi_poetry
+    volumes:
+      - .env:/application/.env
     ports:
       - "8000:8000"
     depends_on:
