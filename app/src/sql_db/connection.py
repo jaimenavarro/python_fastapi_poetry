@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from app.src.config import config
 
-SQLALCHEMY_DATABASE_URL = f'mysql+pymysql://root:admin@{config.SQL_DB_SERVER}/python_test'
+SQLALCHEMY_DATABASE_URL = f'mysql+pymysql://{config.SQL_DB_USER}:{config.SQL_DB_PASSWORD}@{config.SQL_DB_SERVER}/{config.SQL_DB_SCHEMA}'
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL, pool_size=20, max_overflow=0)
 

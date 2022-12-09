@@ -6,7 +6,7 @@ Follow links shows information about the requirements used for this microservice
     *   [FastAPI concurrency and async / await operations](https://fastapi.tiangolo.com/async/)
 * [SQL Database](https://fastapi.tiangolo.com/tutorial/sql-databases)
 * [Redis Database](https://pypi.org/project/redis/)
-* [python-decoupl - config options](https://pypi.org/project/python-decouple/)
+* [python-decouple - config options](https://pypi.org/project/python-decouple/)
 
 ## Folders
 ```shell
@@ -14,20 +14,20 @@ Follow links shows information about the requirements used for this microservice
 .
 ├── README.md
 ├── __pycache__
-├── doc
+├── app
+│   ├── __pycache__
+│   ├── src
+│   └── tests
 ├── docker
 │   ├── Dockerfile
 │   └── docker-compose.yml
+├── docs
+│   └── img.png
+├── helm
+│   └── py_fastapi_poetry
 ├── poetry.lock
 ├── pyproject.toml
-├── python_fastapi_poetry.iml
-├── src
-│   ├── __init__.py
-│   ├── __pycache__
-│   ├── main.py
-│   ├── redis_db
-│   └── sql_db
-└── test_main.http
+└── python_fastapi_poetry.iml
 ```
 
 ## Python Build and Run
@@ -48,34 +48,35 @@ poetry add [dependencies]
 python -m uvicorn app.src.main:app --reload 
 ```
 
-
-
 ## Docker Details
 ### Build Docker Image
 ```shell
 docker build . -f docker/Dockerfile
 ```
 
-### Docker Compose with all dependencies 
+### Run Docker Compose with MySQL and Redis 
 ```shell
 docker-compose -f docker/docker-compose.yml up
+```
+
+## Helm
+* Download dependencies (MySQL and Redis)
+```shell
+helm dep up helm/py_fastapi_poetry
+```
+
+* Deploy chart and dependencies
+```shell
+helm upgrade py helm/py_fastapi_poetry/ -i --debug
+```
+
+* Uninstall charts
+```shell
+helm uninstall py
+kubectl delete pvc -l app.kubernetes.io/instance=py
 ```
 
 ## API Documents
 * http://0.0.0.0:8000/docs
 
 ![img.png](docs/img.png)
-
-## Helm
-
-```shell
-helm dep up helm/py_fastapi_poetry
-```
-
-```shell
-helm upgrade py helm/py_fastapi_poetry/ -i --debug
-```
-
-```shell
-helm uninstall py
-```

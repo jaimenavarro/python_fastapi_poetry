@@ -7,4 +7,11 @@ metadata:
 data:
   env: |
     SQL_DB_SERVER="{{ .Release.Name }}-mysql"
+    SQL_DB_PORT=3306
+    SQL_DB_USER="root"
+    SQL_DB_PASSWORD="admin"
+    SQL_DB_SCHEMA="python_test"
+
     REDIS_DB_SERVER="{{ .Release.Name }}-redis-master"
+    REDIS_DB_PORT=6379
+    REDIS_DB_NUMBER=0
