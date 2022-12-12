@@ -2,7 +2,7 @@
 name = "python-fastapi-poetry"
 version = "0.1.0"
 description = ""
-authors = ["jn245147 <jaime.x.navarrosantapau@gsk.com>"]
+authors = ["jaimenavarro <jaime.navarro.santapau@gmail.com>"]
 readme = "README.md"
 packages = [{include = "app"}]
 
