@@ -8,5 +8,5 @@ __pycache__/
 *.iml
 
 # Helm
-helm/**/*.tgz
-helm/**/Chart.lock
+deploy/helm/**/*.tgz
+deploy/helm/**/Chart.lock

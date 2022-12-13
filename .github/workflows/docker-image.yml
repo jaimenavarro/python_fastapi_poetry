@@ -24,7 +24,7 @@ jobs:
       run: echo ${{ env.USERNAME }} ${{ env.PASSWORD }}
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file docker/Dockerfile --tag ${{ env.IMAGE_NAME }}:$(date +%Y%m%d)
+      run: docker build . --file deploy/docker/Dockerfile --tag ${{ env.IMAGE_NAME }}:$(date +%Y%m%d)
     - name: List docker images
       run: docker images
     - name: Docker login

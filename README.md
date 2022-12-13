@@ -7,6 +7,7 @@ Follow links shows information about the requirements used for this microservice
 * [SQL Database](https://fastapi.tiangolo.com/tutorial/sql-databases)
 * [Redis Database](https://pypi.org/project/redis/)
 * [python-decouple - config options](https://pypi.org/project/python-decouple/)
+* [Actuators](https://pypi.org/project/pyctuator/)
 
 ## Folders
 ```shell
@@ -51,23 +52,23 @@ python -m uvicorn app.src.main:app --reload
 ## Docker Details
 ### Build Docker Image
 ```shell
-docker build . -f docker/Dockerfile
+docker build . -f deploy/docker/Dockerfile
 ```
 
 ### Run Docker Compose with MySQL and Redis 
 ```shell
-docker-compose -f docker/docker-compose.yml up
+docker-compose -f deploy/docker/docker-compose.yml up
 ```
 
 ## Helm
 * Download dependencies (MySQL and Redis)
 ```shell
-helm dep up helm/py_fastapi_poetry
+helm dep up deploy/helm/py_fastapi_poetry
 ```
 
 * Deploy chart and dependencies
 ```shell
-helm upgrade py helm/py_fastapi_poetry/ -i --debug
+helm upgrade py deploy/helm/py_fastapi_poetry/ -i --debug
 ```
 
 * Uninstall charts

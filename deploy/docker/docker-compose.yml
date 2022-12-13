@@ -25,8 +25,8 @@ services:
     command: redis-server --save 20 1 --loglevel warning
   python_fastapi_poetry:
     build:
-      context: ../
-      dockerfile: ./docker/Dockerfile
+      context: ../../
+      dockerfile: deploy/docker/Dockerfile
     image: python_fastapi_poetry
     volumes:
       - .env:/application/.env
