@@ -33,12 +33,13 @@ ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 RUN apt update
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
+WORKDIR /application
+RUN poetry install --no-root -vvv
+
 COPY ./app/ /application/app
 COPY ./poetry.lock ./pyproject.toml /application/
 COPY .env /application/
 
-WORKDIR /application
-RUN poetry install --no-root -vvv
 CMD uvicorn app.src.main:app --host 0.0.0.0 --port 8000 \
     --workers 1 --log-level info \
     --server-header --date-header \
