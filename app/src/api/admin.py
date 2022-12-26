@@ -5,15 +5,15 @@ import httpx
 from fastapi import APIRouter
 from time import sleep
 
-# get root logger
-logger = logging.getLogger(__name__)  # the __name__ resolve to "main" since we are at the root of the project.
+# get logger
+logger = logging.getLogger(__name__)  # the __name__ resolve to this package
 
 router = APIRouter()
 
 
 @router.get("/async")
 async def root():
-    logger.warning("TESTING async")
+    logger.debug("TESTING async")
     headers = {'User-Agent': 'curl/7.79.1'}
     await asyncio.sleep(10)
     client = httpx.AsyncClient()
@@ -23,7 +23,7 @@ async def root():
 
 @router.get("/sync")
 def root():
-    logger.warning("TESTING sync")
+    logger.debug("TESTING sync")
     headers = {'User-Agent': 'curl/7.79.1'}
     sleep(10)
     r = httpx.get('http://ifconfig.me', headers=headers)

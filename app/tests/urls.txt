@@ -3,4 +3,4 @@
  PORT=8000
  $(SCHEME)://$(HOST):$(PORT)/sync
  $(SCHEME)://$(HOST):$(PORT)/async
- $(SCHEME)://$(HOST):$(PORT)/haha/ POST homer=simpson&marge=doestoo
+ #$(SCHEME)://$(HOST):$(PORT)/haha/ POST homer=simpson&marge=doestoo
