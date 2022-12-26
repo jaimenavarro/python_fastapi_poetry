@@ -1,9 +1,14 @@
+import logging
+
 from fastapi import FastAPI
 
 from app.src.api import users, admin, actuators
+from app.src.redis_db.redis import db_redis
 from app.src.sql_db import models
 from app.src.sql_db.connection import engine
-from app.src.redis_db.redis import db_redis
+
+# Load logging configuration
+logging.config.fileConfig('./app/src/logging.conf', disable_existing_loggers=False)
 
 # Create all tables stored in this metadata.
 models.Base.metadata.create_all(bind=engine)
