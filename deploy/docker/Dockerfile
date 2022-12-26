@@ -30,16 +30,20 @@ ENV PYTHONUNBUFFERED=1 \
 # prepend poetry and venv to path
 ENV PATH="$POETRY_HOME/bin:$VENV_PATH/bin:$PATH"
 
+# Install external packages
 RUN apt update
 RUN curl -sSL https://install.python-poetry.org | python3 -
 
+# Install python dependencies
 WORKDIR /application
+COPY ./poetry.lock ./pyproject.toml /application/
 RUN poetry install --no-root -vvv
 
+# Copy python code
 COPY ./app/ /application/app
-COPY ./poetry.lock ./pyproject.toml /application/
 COPY .env /application/
 
+# Run ASGI (Asynchronous Server Gateway Interface) with python app
 CMD uvicorn app.src.main:app --host 0.0.0.0 --port 8000 \
     --workers 1 --log-level info \
     --server-header --date-header \
