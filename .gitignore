@@ -10,3 +10,6 @@ __pycache__/
 # Helm
 deploy/helm/**/*.tgz
 deploy/helm/**/Chart.lock
+
+# Tests logs
+/app/tests/siege.log
