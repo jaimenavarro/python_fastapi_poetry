@@ -27,7 +27,7 @@ jobs:
         echo "----------------------------------"
         echo "VARIBLE : ${{ vars.VARIABLE }}"
         echo "SECRET : ${{ vars.SECRET }}"
-        echo "SECRET : ${{ secret.SECRET }}"
+        echo "SECRET : ${{ secrets.SECRET }}"
     - name: Show environment variables
       run: echo ${{ env.USERNAME }} ${{ env.PASSWORD }}
     - uses: actions/checkout@v3
