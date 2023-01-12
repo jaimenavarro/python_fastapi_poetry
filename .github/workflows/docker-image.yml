@@ -22,7 +22,7 @@ jobs:
     environment: test
     steps:
     - name: Show all environment variables
-      run: env ; echo ${{ var.VARIABLE }}; echo {{ var.SECRET }}
+      run: env ; echo ${{ var.VARIABLE }}; echo ${{ var.SECRET }}
     - name: Show environment variables
       run: echo ${{ env.USERNAME }} ${{ env.PASSWORD }}
     - uses: actions/checkout@v3
