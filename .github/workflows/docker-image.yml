@@ -25,9 +25,11 @@ jobs:
       run: |
         env
         echo "----------------------------------"
-        echo "VARIBLE : ${{ vars.VARIABLE }}"
+        echo "VARIABLE : ${{ vars.VARIABLE }}" > mio
+        cat mio
         echo "SECRET : ${{ vars.SECRET }}"
-        echo "SECRET : ${{ secrets.SECRET }}"
+        echo "SECRET : ${{ secrets.SECRET }}" > mio2
+        cat mio2
     - name: Show environment variables
       run: echo ${{ env.USERNAME }} ${{ env.PASSWORD }}
     - uses: actions/checkout@v3
